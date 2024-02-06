@@ -6,19 +6,21 @@ function App() {
   const [value, setValue] = useState('https://www.1stg.me');
 
   return (
-    <>
-      <div id="app">
-        <h1></h1>
+    <div className='app'>
+      <div className="container">
+        <h1>QRCode Generator</h1>
 
         <form>
           <input type="text" onChange={(e) => setValue(e.target.value)} />
         </form>
 
-        <div className="output">
-          <QRious value={value} />
+        <div className="qrcode_box">
+          <div className="output">
+            <QRious value={value} size={200} />
+          </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 
@@ -28,7 +30,7 @@ function renderApp() {
     console.error("Root container 'qrious' not found.");
     return;
   }
-  
+
   const root = ReactDOM.createRoot(rootContainer);
   root.render(<App />);
 }
